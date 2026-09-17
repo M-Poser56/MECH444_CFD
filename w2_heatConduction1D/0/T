@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 300; // Initial guess
+
+boundaryField
+{
+    east
+    {
+    }
+
+    west
+    {
+    }
+    
+    "(front|back|north|south)"
+    {
+        type            empty;
+    }
+
+    fixedValueExample
+    {
+        type            fixedValue;
+        value           uniform 100; // T value, K
+    }
+
+    convectionExample
+    {
+        type            mixed;
+        Ta              298; // Ambient temperature, K
+        h               10; // Convection coefficient, W/m2K
+        k               15; // Thermal conductivity, W/mK
+        dx              0.1; // Wall-normal mesh cell size, m
+
+        refValue        uniform $Ta;
+        refGradient     uniform 0;
+        valueFraction   uniform #eval{ $h/($h + ($k/($dx/2))) };
+    }
+
+    fluxExample
+    {
+        type            fixedGradient;
+
+        q               1000; // Flux, W/m2, positive=in, negative=out
+        k               15; // Thermal conductivity, W/mK
+
+        gradient        uniform #eval{ $q/$k };
+    }
+
+}
+
+// ************************************************************************* //
