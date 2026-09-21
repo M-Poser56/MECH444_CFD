@@ -21,7 +21,7 @@ FoamFile
 (
     back
     {
-        type            empty;
+        type            empty; //if you're not solving for this dimension. Here, only east/west are activated
         physicalType    patch;
         nFaces          10;
         startFace       9;

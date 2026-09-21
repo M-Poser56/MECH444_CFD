@@ -20,7 +20,7 @@ internalField   uniform 300; // Initial guess
 
 boundaryField
 {
-    east
+    east //BCs to be filled here
     {
     }
 
