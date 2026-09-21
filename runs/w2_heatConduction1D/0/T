@@ -22,10 +22,14 @@ boundaryField
 {
     east //BCs to be filled here
     {
+        type            fixedValue;
+        value           uniform 300;
     }
 
     west
     {
+        type            fixedValue;
+        value           uniform 700;
     }
     
     "(front|back|north|south)"
