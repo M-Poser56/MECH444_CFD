@@ -10,45 +10,12 @@ FoamFile
     version     2.0;
     format      ascii;
     arch        "LSB;label=32;scalar=64";
-    class       volScalarField;
-    location    "2";
-    object      T;
+    class       regIOobject;
+    location    "constant/polyMesh";
+    object      pointZones;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
-
-internalField   nonuniform List<scalar> 10(730 769.999 789.999 789.999 769.998 729.999 669.999 589.999 489.999 370);
-
-boundaryField
-{
-    back
-    {
-        type            empty;
-    }
-    south
-    {
-        type            empty;
-    }
-    east
-    {
-        type            fixedValue;
-        value           uniform 300;
-    }
-    north
-    {
-        type            empty;
-    }
-    west
-    {
-        type            fixedValue;
-        value           uniform 700;
-    }
-    front
-    {
-        type            empty;
-    }
-}
-
+0()
 
 // ************************************************************************* //

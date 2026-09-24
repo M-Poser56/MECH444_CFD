@@ -10,45 +10,64 @@ FoamFile
     version     2.0;
     format      ascii;
     arch        "LSB;label=32;scalar=64";
-    class       volScalarField;
-    location    "2";
-    object      DT;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
 
-internalField   uniform 4e-06;
-
-boundaryField
-{
+6
+(
     back
     {
         type            empty;
+        physicalType    patch;
+        nFaces          200;
+        startFace       370;
     }
+
     south
     {
-        type            empty;
+        type            patch;
+        physicalType    patch;
+        nFaces          20;
+        startFace       570;
     }
+
     east
     {
-        type            calculated;
-        value           uniform 4e-06;
+        type            patch;
+        physicalType    patch;
+        nFaces          10;
+        startFace       590;
     }
+
     north
     {
-        type            empty;
+        type            patch;
+        physicalType    patch;
+        nFaces          20;
+        startFace       600;
     }
+
     west
     {
-        type            calculated;
-        value           uniform 4e-06;
+        type            patch;
+        physicalType    patch;
+        nFaces          10;
+        startFace       620;
     }
+
     front
     {
         type            empty;
+        physicalType    patch;
+        nFaces          200;
+        startFace       630;
     }
-}
+
+)
 
 
 // ************************************************************************* //

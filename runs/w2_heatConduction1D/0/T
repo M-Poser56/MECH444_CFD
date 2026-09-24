@@ -22,7 +22,7 @@ boundaryField
 {
     east //BCs to be filled here
     {
-        type            fixedValue;
+        type            fixedValue; //type in bananas here to throw an error, see all available BC options
         value           uniform 300;
     }
 
