@@ -16,58 +16,50 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-
 6
 (
     back
     {
         type            empty;
         physicalType    patch;
-        nFaces          200;
-        startFace       370;
+        nFaces          10000;
+        startFace       18990;
     }
-
     south
     {
         type            patch;
         physicalType    patch;
-        nFaces          20;
-        startFace       570;
+        nFaces          1000;
+        startFace       28990;
     }
-
     east
     {
         type            patch;
         physicalType    patch;
         nFaces          10;
-        startFace       590;
+        startFace       29990;
     }
-
     north
     {
         type            patch;
         physicalType    patch;
-        nFaces          20;
-        startFace       600;
+        nFaces          1000;
+        startFace       30000;
     }
-
     west
     {
         type            patch;
         physicalType    patch;
         nFaces          10;
-        startFace       620;
+        startFace       31000;
     }
-
     front
     {
         type            empty;
         physicalType    patch;
-        nFaces          200;
-        startFace       630;
+        nFaces          10000;
+        startFace       31010;
     }
-
 )
-
 
 // ************************************************************************* //
