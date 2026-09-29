@@ -14,7 +14,7 @@ SetFactory("OpenCASCADE");
 
 // Parameters
 
-L = 100; // m, length, x // this was too short, our flow was not fully developed (og length 2)
+L = 2; // m, length, x
 h = 1; // m, height, y
 d = 0.1; // m, depth, z
 
