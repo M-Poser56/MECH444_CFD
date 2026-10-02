@@ -1,0 +1,63 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2606                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _481094f-20260618 OPENFOAM=2606 version=2606
+Arch   : "LSB;label=32;scalar=64"
+Exec   : laplacianFoam
+Date   : Sep 23 2026
+Time   : 19:28:39
+Host   : Matts-Lenovo
+PID    : 10980
+I/O    : uncollated
+Case   : /home/mposer/MECH444_CFD/runs/w2_heatConduction2D
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+memory pool : not available
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+
+--> FOAM Warning : allowSystemOperations : Allowing user-supplied system call operations.
+                   This can be a security risk if running untrusted cases
+                   through e.g. 'coded' on-the-fly-compilation functionality.
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+SIMPLE: convergence criteria
+    field T	 tolerance 1e-06
+
+Reading field T
+
+Reading diffusivity DT
+
+Creating finite-volume options from "system/fvOptions"
+
+Selecting finite volume options type scalarSemiImplicitSource
+    Source: scalarSource1
+    State: active
+    - selecting all cells
+    - selected 200 cell(s) with volume 0.2
+
+Calculating temperature distribution
+
+Time = 1
+
+smoothSolver:  Solving for T, Initial residual = 1, Final residual = 9.92294e-07, No Iterations 197
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+Time = 2
+
+smoothSolver:  Solving for T, Initial residual = 3.84122e-07, Final residual = 3.84122e-07, No Iterations 0
+ExecutionTime = 0.01 s  ClockTime = 0 s
+
+
+SIMPLE solution converged in 2 iterations
+
+End
+
