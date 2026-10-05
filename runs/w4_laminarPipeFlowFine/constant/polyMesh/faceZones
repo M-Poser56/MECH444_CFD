@@ -10,35 +10,12 @@ FoamFile
     version     2.0;
     format      binary;
     arch        "LSB;label=32;scalar=64";
-    class       polyBoundaryMesh;
+    class       regIOobject;
     location    "constant/polyMesh";
-    object      boundary;
+    object      faceZones;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3
-(
-    inlet
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          442;
-        startFace       33618;
-    }
-    wall
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          832;
-        startFace       34060;
-    }
-    outlet
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          442;
-        startFace       34892;
-    }
-)
+0()
 
 // ************************************************************************* //

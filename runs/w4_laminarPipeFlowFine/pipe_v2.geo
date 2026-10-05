@@ -18,13 +18,13 @@ Plane Surface(1) = {1};
 
 // Mesh settings
 
-Mesh.CharacteristicLengthMax = 0.01;
+Mesh.CharacteristicLengthMax = 0.008;
 Mesh.RecombineAll = 1;
 
 Field[1] = BoundaryLayer;
 
 Field[1].CurvesList = {1}; // Curves that make up wall
-Field[1].Size = 0.001; // First layer thickness
+Field[1].Size = 0.0008; // First layer thickness
 Field[1].Ratio = 1.2; // Geometric growth ratio
 Field[1].Thickness = 0.02; // Total thickness of prism layer region
 Field[1].Quads = 1;
@@ -38,7 +38,7 @@ Mesh 2;
 
 // Extrude mesh
 
-lx = 0.04; // Cell length in x direction
+lx = 0.03; // Cell length in x direction
 N = L/lx + 1; // Number of cells in x direction
 
 Extrude {L, 0, 0}
