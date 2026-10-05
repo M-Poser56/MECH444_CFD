@@ -22,4 +22,5 @@ Physical Surface("outlet") = {2};
 Physical Volume("fluid") = {1};
 
 //previw mesh
-Mesh 3;
+Mesh 3;//+
+Show "*";
