@@ -10,35 +10,15 @@ FoamFile
     version     2.0;
     format      binary;
     arch        "LSB;label=32;scalar=64";
-    class       polyBoundaryMesh;
-    location    "constant/polyMesh";
-    object      boundary;
+    class       uniformDimensionedScalarField;
+    location    "300/uniform";
+    object      cumulativeContErr;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3
-(
-    inlet
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          216;
-        startFace       44584;
-    }
-    wall
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          1120;
-        startFace       44800;
-    }
-    outlet
-    {
-        type            patch;
-        physicalType    patch;
-        nFaces          216;
-        startFace       45920;
-    }
-)
+dimensions      [0 0 0 0 0 0 0];
+value           1.4930748e-07;
+
+
 
 // ************************************************************************* //
