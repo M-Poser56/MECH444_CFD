@@ -8,13 +8,16 @@
 FoamFile
 {
     version     2.0;
-    format      ascii;
+    format      binary;
     arch        "LSB;label=32;scalar=64";
-    class       dictionary;
-    location    "213/uniform/functionObjects";
-    object      functionObjectProperties;
+    class       uniformDimensionedScalarField;
+    location    "230/uniform";
+    object      cumulativeContErr;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+value           -9.7135838e-06;
 
 
 

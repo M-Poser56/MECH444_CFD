@@ -34,7 +34,7 @@ boundaryField
     }
     wall
     {
-        type            nutkWallFunction;
+        type            nutLowReWallFunction;//nutkWallFunction;
         value           $internalField;
     }
 }
