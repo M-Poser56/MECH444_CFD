@@ -1,0 +1,35 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+forceCoeffs
+{
+    type            forceCoeffs;
+
+    libs            (forces);
+
+    writeControl    timeStep;
+    timeInterval    1;
+
+    log             no;
+
+    magUInf         0.01;         // Freestream velocity
+    lRef            0.01;         // Diameter
+    Aref            #eval{ $lRef*0.01 };  // lRef times span width
+
+    patches         (prism);
+    rho             rhoInf;      // Indicates incompressible
+    rhoInf          1;           // Required when rho = rhoInf
+    liftDir         (0 1 0);
+    dragDir         (1 0 0);
+    
+    CofR            (0 0 0);  // Aerodynamic center point
+    pitchAxis       (0 0 1);
+}
+
+
+// ************************************************************************* //
