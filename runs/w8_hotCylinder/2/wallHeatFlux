@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2606                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "2";
+    object      wallHeatFlux;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    frontAndBack
+    {
+        type            empty;
+    }
+    sides
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    outlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    inlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    walls
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 
+82
+(û³"¡@Ë‡Mìœ @^æœ5Ÿ@æ	$j 4@Äkºá8›@Å³|©F™@ë48/µ`—@ Õ·–-Š•@¼&êİ$Æ“@6¡'}“’@íWB–c@ön®1-@ÿ°U‹@—x?3âˆ@ÀC½¨B½†@€­êB@.Æ=Uî„@‰Q eÉzƒ@e;©Yc‚@*RfJã£@Hbùm5@Àe¢@AÊ&ı5@EJ„¨¥@ö‰ÅPe‚@ıÙ&ÕŸ}ƒ@ÃÁ\ò„@ÍŠ€ÔòÁ†@YU0»çˆ@… ô{R[‹@¾RÏ[8ô¬@  bÌÈ$­@Ÿaå-G­@MîÉ¦…@š±i~’@¬PÓ;Ê“@ï$Ànf•@Ùm×e—@­b£;K™@Wd²ìD=›@-×Ra8@dîb9Ÿ@¸”= @z°á0Ÿ¡@”:ˆh¢@ÖUŠS—£@ÇˆÔ°
+‹¤@×îSŞv¥@Ur­r_Y¦@·«Òw1§@%›á•ı§@¬s2ÇÅ¼¨@Ğ…å£m©@¥¿£rfª@™¥VOü¤ª@ùËËP+«@êÑÓ]V£«@—9Û¬@Ï'0ch¬@/¤pµ¬@©!İÚ„[­@ôK×g+b­@ow/q[­@óxXZG­@³jºƒŒ$­@(FÛçó¬@ùıS	µ¬@åC`æg¬@ÈTË—s¬@h¶™K«¢«@êÉ€9*«@SÕ`!¤ª@hpwnª@ßåùl©@œÅ“»¨@ÊL9MDü§@—zï§0§@ûTtPÒW¦@nW4u¥@Lƒh¾D‰¤@uá´<i•£@f¾Yg›¢@);
+    }
+}
+
+
+// ************************************************************************* //

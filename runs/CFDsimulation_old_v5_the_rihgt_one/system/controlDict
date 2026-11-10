@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2606                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     buoyantPimpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         3;
+
+deltaT          0.001; 
+
+adjustTimeStep  yes;
+
+maxCo           5;
+
+writeControl    adjustableRunTime;
+
+writeInterval   0.5;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  8;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable true;
+
+functions
+{
+    heatFlux
+    {
+        type            wallHeatFlux;
+        libs            (fieldFunctionObjects);
+        executeControl  writeTime;
+        writeControl    writeTime;
+        writeInterval   1;
+        patches         (walls);
+    }
+
+    htc
+    {
+        type            heatTransferCoeff;
+        libs            (fieldFunctionObjects);
+        field           T;
+        executeControl  writeTime;
+        writeControl    writeTime;
+        writeInterval   1;
+        htcModel        fixedReferenceTemperature;
+        patches         (walls);
+        TRef            298;
+    }
+
+    #include "yPlus"
+}
+
+
+// ************************************************************************* //

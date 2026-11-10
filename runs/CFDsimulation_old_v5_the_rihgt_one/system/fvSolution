@@ -1,0 +1,117 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2606                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    "rho.*"
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-6;
+        relTol          0;
+    }
+
+    p_rgh
+    {
+        solver          GAMG;
+        smoother        GaussSeidel;
+        tolerance       1e-6;
+        relTol          0.01;
+    }
+
+    p_rghFinal
+    {
+        $p_rgh;
+        relTol          0;
+    }
+
+    "(U|h|T|e|k|epsilon|omega)"
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-6;
+        relTol          0; //0.1;
+    }
+    
+    "(U|h|T|e|k|epsilon|omega)Final"
+    {
+        $U;
+        relTol          0;
+    }
+}
+
+SIMPLE
+{
+    nNonOrthogonalCorrectors 0;
+    rhoMax          2;
+    rhoMin          1;
+   
+    //pRefCell        0;
+    //pRefValue       0;
+ 
+    consistent      yes;
+
+    residualControl
+    {
+        p_rgh           1e-4;
+        U               1e-4;
+        T               1e-4;
+        nuTilda         1e-4;
+        k               1e-4;
+        omega           1e-4;
+        epsilon         1e-4;
+    }
+}
+
+PIMPLE
+{
+    nOuterCorrectors 10;
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 1;
+    //pRefCell        0;
+    //pRefValue       0;
+
+    consistent      yes;
+    
+    residualControl
+    {
+        "(U|p_rgh|T|h|e|k|epsilon|omega)"
+        {
+            relTol          0.1;
+            tolerance       1e-4;
+        }
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        rho             1;
+        p_rgh           1; 
+    }
+    relax 0.9; 
+    equations
+    {
+        U               $relax; 
+        "(h|e|T)"       $relax;
+        k               $relax;
+        "(epsilon|omega)" $relax;
+    }
+}
+
+
+// ************************************************************************* //
